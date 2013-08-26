@@ -39,7 +39,7 @@ mysql_database_user node['wlcserver']['db_username'] do
     :host => 'localhost', 
     :username => 'root', 
     :password => node['mysql']['server_root_password']})
-  password node['wlcserver']['db_password']
+  password node['wlcserver']['database_password']
   database_name node['wlcserver']['database']
   privileges [:select,:update,:insert,:create,:delete]
   action :grant
@@ -51,7 +51,7 @@ mysql_database_user node['wlcserver']['db_username'] do
     :host => 'localhost',
     :username => 'root',
     :password => node['mysql']['server_root_password']})
-  password node['wlcserver']['db_password']
+  password node['wlcserver']['database_password']
   database_name node['wlcserver']['test_database']
   privileges [:select,:update,:insert,:create,:delete]
   action :grant

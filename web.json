@@ -15,30 +15,31 @@
     "domains": {
       "domain1": {
         "config": {
-          "port": 80
+          "port": 80,
           "admin_port": 4848,
           "username": "admin",
-          "password": "TODO",
+          "password": "",
           "secure": false,
           "max_stack_size": 512,
           "terse": true
         }
       }
     }
-  }
+  },
   "mysql": {
-    "server_root_password": "TODO", 
-    "server_debian_password": "TODO", 
-    "server_repl_password": "TODO"
+    "server_root_password": "", 
+    "server_debian_password": "", 
+    "server_repl_password": ""
   },
   "wlcserver": {
     "database": "coding",
     "test_database": "coding_test",
     "database_username": "wlcapp",
-    "database_password": "TODO"
+    "database_password": ""
   },
   "run_list": [ 
     "recipe[apt]", 
+    "recipe[htop]",
     "recipe[wlcserver]"
   ]
 }
