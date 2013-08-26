@@ -53,3 +53,8 @@ default['wlcserver']['glassfish']['jdbc_resource']['jndi-name'] = "jdbc/coding"
 default['wlcserver']['glassfish']['jdbc_resource']['enabled'] = true
 default['wlcserver']['glassfish']['jdbc_resource']['description'] = ""
 
+default['wlcserver']['glassfish']['auth_realm']['realm_name'] = "CodingRealm"
+default['wlcserver']['glassfish']['auth_realm']['classname'] = "com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm"
+
+default['wlcserver']['glassfish']['auth_realm']['jaas_context'] = "jdbcRealm"
+default['wlcserver']['glassfish']['auth_realm']['assign_groups'] = nil

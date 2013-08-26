@@ -74,6 +74,10 @@ glassfish_domain "domain1" do
   max_stack_size              512
 end
 
+glassfish_secure_admin node['wlcserver']['glassfish']['domain_name'] do
+   action :enable
+end
+
 glassfish_library 'http://daisy.trac.cvsdude.com/pipeline/export/15/persontest/trunk/db/mysql/mysql-connector-java-5.1.6-bin.jar' do
   domain_name                 node['wlcserver']['glassfish']['domain_name']
   admin_port                  node['wlcserver']['glassfish']['admin_port']
@@ -160,16 +164,32 @@ glassfish_jdbc_resource node['wlcserver']['glassfish']['jdbc_resource']['jndi-na
 #  properties               
 end
 
-#  realm_name:
+glassfish_auth_realm node['wlcserver']['glassfish']['auth_realm']['realm_name'] do
+  # Global settings
+  domain_name                 node['wlcserver']['glassfish']['domain_name']
+  username                    node['wlcserver']['glassfish']['admin_name']
+  password_file               password_file
+  admin_port                  node['wlcserver']['glassfish']['admin_port']
+  secure                      node['wlcserver']['glassfish']['secure']
+  terse                       node['wlcserver']['glassfish']['terse']
+  echo                        node['wlcserver']['glassfish']['echo']
+
+  # Auth Realm settings
+  realm_name                  node['wlcserver']['glassfish']['auth_realm']['realm_name']
 #  target: Defaults to "server".
-#  classname:
-#  jaas_context node['wlcserver']['glassfish']['jdbc_connection_pool']['']
-#  assign_groups node['wlcserver']['glassfish']['jdbc_connection_pool']['']
-#  properties: Defaults to {}.
-#  domain_name: The name of the domain.
-#  terse: Use terse output from the underlying asadmin. Defaults to false.
-#  echo: If true, echo commands supplied to asadmin. Defaults to true.
-#  username: The username to use when communicating with the domain. Defaults to nil.
-#  password_file: The file in which the password must be stored assigned to appropriate key. Defaults to nil.
-#  secure: If true use SSL when communicating with the domain for administration. Defaults to false.
-#  admin_port: The port on which the web management console is bound. Defaults to 4848.
+  classname                   node['wlcserver']['glassfish']['auth_realm']['classname']
+  jaas_context                node['wlcserver']['glassfish']['auth_realm']['jaas_context'] 
+  assign_groups               node['wlcserver']['glassfish']['auth_realm']['assign_groups']
+  properties({
+    'encoding'                     =>    "Hex",
+    'password-column'              =>    "PASSWORD",
+    'datasource-jndi'              =>    "jdbc/coding",
+    'group-table'                  =>    "ACCOUNT_GROUP",
+    'user-table'                   =>    "ACCOUNT",
+    'group-name-column'            =>    "GROUPS",
+    'group-table-user-name-column' =>    "EMAIL",
+    'digest-algorithm'             =>    "SHA-256",
+    'user-name-column'             =>    "EMAIL",
+    'db-user'                      =>    "wlcapp"
+  })
+end
