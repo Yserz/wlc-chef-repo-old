@@ -131,7 +131,7 @@ glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['jdbc_connection_p
   })
 end
 
-glassfish_jdbc_resource node['wlcserver']['glassfish']['jdbc_resource']['name'] do
+glassfish_jdbc_resource node['wlcserver']['glassfish']['jdbc_resource']['jndi-name'] do
   # Global settings
   domain_name                 node['wlcserver']['glassfish']['domain_name']
   username                    node['wlcserver']['glassfish']['admin_name']

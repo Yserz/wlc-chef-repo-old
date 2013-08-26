@@ -48,7 +48,7 @@ default['wlcserver']['glassfish']['jdbc_connection_pool']['validate-atmost-once-
 default['wlcserver']['glassfish']['jdbc_connection_pool']['wrap-jdbc-objects'] = false
 
 
-default['wlcserver']['glassfish']['jdbc_resource']['pool-name'] = node['wlcserver']['glassfish']['jdbc_connection_pool']['name']
+default['wlcserver']['glassfish']['jdbc_resource']['pool-name'] = "CodingConnectionPool"
 default['wlcserver']['glassfish']['jdbc_resource']['jndi-name'] = "jdbc/coding"
 default['wlcserver']['glassfish']['jdbc_resource']['enabled'] = true
 default['wlcserver']['glassfish']['jdbc_resource']['description'] = ""
