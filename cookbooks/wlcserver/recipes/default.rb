@@ -2,7 +2,11 @@
 # Cookbook Name:: wlcserver
 # Recipe:: default
 #
-# Copyright 2013, YOUR_COMPANY_NAME
+# Copyright 2013, Michael Koppen
 #
 # All rights reserved - Do Not Redistribute
 #
+
+
+include_recipe "mysql::client"
+include_recipe "mysql::server"
