@@ -75,7 +75,16 @@ glassfish_domain "domain1" do
 end
 
 glassfish_secure_admin node['wlcserver']['glassfish']['domain_name'] do
-   action :enable
+  # Global settings
+  domain_name                 node['wlcserver']['glassfish']['domain_name']
+  username                    node['wlcserver']['glassfish']['admin_name']
+  password_file               password_file
+  admin_port                  node['wlcserver']['glassfish']['admin_port']
+  secure                      node['wlcserver']['glassfish']['secure']
+  terse                       node['wlcserver']['glassfish']['terse']
+  echo                        node['wlcserver']['glassfish']['echo']
+
+  action :enable
 end
 
 glassfish_library 'http://daisy.trac.cvsdude.com/pipeline/export/15/persontest/trunk/db/mysql/mysql-connector-java-5.1.6-bin.jar' do
