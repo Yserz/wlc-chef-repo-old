@@ -68,7 +68,7 @@ glassfish_domain "domain1" do
   secure                      node['wlcserver']['glassfish']['secure']
   terse                       node['wlcserver']['glassfish']['terse']
   echo                        node['wlcserver']['glassfish']['echo']
-  extra_libraries             ['https://github.com/Yserz/WLC-Chef-Repo/blob/master/mysql-connector-java-5.1.26-bin.jar?raw=true']
+#  extra_libraries             ['https://github.com/Yserz/WLC-Chef-Repo/blob/master/mysql-connector-java-5.1.26-bin.jar?raw=true']
   max_stack_size              512
 end
 
@@ -122,11 +122,11 @@ glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['jdbc_connection_p
   steadypoolsize              node['wlcserver']['glassfish']['jdbc_connection_pool']['steady-pool-size']
   validateatmostonceperiod    node['wlcserver']['glassfish']['jdbc_connection_pool']['validate-atmost-once-period-in-seconds']
   wrapjdbcobjects             node['wlcserver']['glassfish']['jdbc_connection_pool']['wrap-jdbc-objects']
-  properties {
-    "URL":                      "jdbc:mysql://localhost:3306/#{node['wlcserver']['database']}",
-    "User":                     node['wlcserver']['database_username'],
-    "Password":                 node['wlcserver']['database_password']
-  }
+  properties ({
+    :URL =>                      "jdbc:mysql://localhost:3306/#{node['wlcserver']['database']}",
+    :User =>                     node['wlcserver']['database_username'],
+    :Password =>                 node['wlcserver']['database_password']
+  })
 end
 
 glassfish_jdbc_resource node['wlcserver']['glassfish']['jdbc_resource']['name'] do
@@ -140,8 +140,8 @@ glassfish_jdbc_resource node['wlcserver']['glassfish']['jdbc_resource']['name'] 
   echo                        node['wlcserver']['glassfish']['echo']
   
   # Resource settings
-  connectionpoolid            node['wlcserver']['glassfish']['jdbc_resource']['name']
-  resource_name               node['wlcserver']['glassfish']['jdbc_resource']['name']
+  connectionpoolid            node['wlcserver']['glassfish']['jdbc_resource']['pool-name']
+  resource_name               node['wlcserver']['glassfish']['jdbc_resource']['jndi-name']
   enabled                     node['wlcserver']['glassfish']['jdbc_resource']['enabled']
   description                 node['wlcserver']['glassfish']['jdbc_resource']['description']
 #  target                      
