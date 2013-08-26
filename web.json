@@ -11,21 +11,6 @@
       "port": 8080
     }
   },
-  "glassfish": {
-    "domains": {
-      "domain1": {
-        "config": {
-          "port": 80,
-          "admin_port": 4848,
-          "username": "admin",
-          "password": "",
-          "secure": false,
-          "max_stack_size": 512,
-          "terse": true
-        }
-      }
-    }
-  },
   "mysql": {
     "server_root_password": "", 
     "server_debian_password": "", 
@@ -35,7 +20,22 @@
     "database": "coding",
     "test_database": "coding_test",
     "database_username": "wlcapp",
-    "database_password": ""
+    "database_password": "",
+	"glassfish": {
+		"domain_name": "domain1",
+		"admin_name": "admin",
+		"admin_password": "",
+		"admin_port": 4848,
+		"secure": false,
+		"echo": true,
+		"terse": false,
+		"jdbc_connection_pool": {
+			"name": "CodingConnectionPool"
+		},
+		"jdbc_resource": {
+			"jndi-name": "jdbc/coding"
+		}
+	}
   },
   "run_list": [ 
     "recipe[apt]", 
