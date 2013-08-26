@@ -1,11 +1,44 @@
 {
+  "java": {
+    "install_flavor": "oracle",
+    "oracle": {
+      "accept_oracle_download_terms": true
+    }
+  },
+  "jenkins": {
+    "server": {
+      "install_method": "package",
+      "port": 8080
+    }
+  },
+  "glassfish": {
+    "domains": {
+      "domain1": {
+        "config": {
+          "port": 80
+          "admin_port": 4848,
+          "username": "admin",
+          "password": "TODO",
+          "secure": false,
+          "max_stack_size": 512,
+          "terse": true
+        }
+      }
+    }
+  }
   "mysql": {
-    "server_root_password": "", 
-    "server_debian_password": "", 
-    "server_repl_password": ""
+    "server_root_password": "TODO", 
+    "server_debian_password": "TODO", 
+    "server_repl_password": "TODO"
+  },
+  "wlcserver": {
+    "database": "coding",
+    "test_database": "coding_test",
+    "database_username": "wlcapp",
+    "database_password": "TODO"
   },
   "run_list": [ 
     "recipe[apt]", 
-    "recipe[wlcserver]" 
+    "recipe[wlcserver]"
   ]
 }
