@@ -14,7 +14,9 @@
   "mysql": {
     "server_root_password": "", 
     "server_debian_password": "", 
-    "server_repl_password": ""
+    "server_repl_password": "",
+    "bind_address": "127.0.0.1",
+    "port": 3306
   },
   "wlcserver": {
     "database": "coding",
