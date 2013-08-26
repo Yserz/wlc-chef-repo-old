@@ -26,7 +26,7 @@
 		"admin_name": "admin",
 		"admin_password": "",
 		"admin_port": 4848,
-		"secure": false,
+		"secure": true,
 		"echo": true,
 		"terse": false,
 		"jdbc_connection_pool": {

@@ -74,6 +74,16 @@ glassfish_domain "domain1" do
   max_stack_size              512
 end
 
+glassfish_library 'http://daisy.trac.cvsdude.com/pipeline/export/15/persontest/trunk/db/mysql/mysql-connector-java-5.1.6-bin.jar' do
+  domain_name                 node['wlcserver']['glassfish']['domain_name']
+  admin_port                  node['wlcserver']['glassfish']['admin_port']
+  username                    node['wlcserver']['glassfish']['admin_name']
+  password_file               password_file
+  secure                      node['wlcserver']['glassfish']['secure']
+  library_type                'ext'
+  upload                      false
+end
+
 # Create WLC JDBC Connection Pool
 glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['jdbc_connection_pool']['name'] do
   # Global settings
