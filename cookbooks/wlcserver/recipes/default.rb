@@ -68,7 +68,7 @@ glassfish_domain "domain1" do
   secure                      node['wlcserver']['glassfish']['secure']
   terse                       node['wlcserver']['glassfish']['terse']
   echo                        node['wlcserver']['glassfish']['echo']
-  extra_libraries             ['https://github.com/Yserz/WLC-Chef-Repo/blob/master/mysql-connector-java-5.1.26-bin.jar']
+  extra_libraries             ['https://github.com/Yserz/WLC-Chef-Repo/blob/master/mysql-connector-java-5.1.26-bin.jar?raw=true']
   max_stack_size              512
 end
 
