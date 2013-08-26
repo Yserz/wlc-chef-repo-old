@@ -1,3 +1,5 @@
+GlassFish Example: http://realityforge.org/code/2012/11/12/reusable-cookbooks-revisited.html
+
 Overview
 ========
 
