@@ -12,19 +12,19 @@
     }
   },
   "mysql": {
-    "server_root_password": "aaa", 
-    "server_debian_password": "aaa", 
-    "server_repl_password": "aaa"
+    "server_root_password": "", 
+    "server_debian_password": "", 
+    "server_repl_password": ""
   },
   "wlcserver": {
     "database": "coding",
     "test_database": "coding_test",
     "database_username": "wlcapp",
-    "database_password": "aaa",
+    "database_password": "",
 	"glassfish": {
 		"domain_name": "domain1",
 		"admin_name": "admin",
-		"admin_password": "aaa",
+		"admin_password": "",
 		"admin_port": 4848,
 		"secure": false,
 		"echo": true,

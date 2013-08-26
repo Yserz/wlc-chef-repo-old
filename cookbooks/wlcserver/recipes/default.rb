@@ -59,11 +59,13 @@ end
 
 # GLASSFISH #
 # Create Domain
+password_file = "#{node['glassfish']['domains_dir']}/#{node['wlcserver']['glassfish']['domain_name']}_admin_passwd"
 glassfish_domain "domain1" do
   domain_name                 node['wlcserver']['glassfish']['domain_name']
   port                        80
   username                    node['wlcserver']['glassfish']['admin_name']
-  password_file               node['wlcserver']['glassfish']['admin_password']
+  password                    node['wlcserver']['glassfish']['admin_password']
+  password_file               password_file
   admin_port                  node['wlcserver']['glassfish']['admin_port']
   secure                      node['wlcserver']['glassfish']['secure']
   terse                       node['wlcserver']['glassfish']['terse']
@@ -77,7 +79,7 @@ glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['jdbc_connection_p
   # Global settings
   domain_name                 node['wlcserver']['glassfish']['domain_name']
   username                    node['wlcserver']['glassfish']['admin_name']
-  password_file               node['wlcserver']['glassfish']['admin_password']
+  password_file               password_file
   admin_port                  node['wlcserver']['glassfish']['admin_port']
   secure                      node['wlcserver']['glassfish']['secure']
   terse                       node['wlcserver']['glassfish']['terse']
@@ -133,7 +135,7 @@ glassfish_jdbc_resource node['wlcserver']['glassfish']['jdbc_resource']['name'] 
   # Global settings
   domain_name                 node['wlcserver']['glassfish']['domain_name']
   username                    node['wlcserver']['glassfish']['admin_name']
-  password_file               node['wlcserver']['glassfish']['admin_password']
+  password_file               password_file
   admin_port                  node['wlcserver']['glassfish']['admin_port']
   secure                      node['wlcserver']['glassfish']['secure']
   terse                       node['wlcserver']['glassfish']['terse']
