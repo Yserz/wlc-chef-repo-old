@@ -32,11 +32,24 @@
 		"secure": true,
 		"echo": true,
 		"terse": false,
-		"jdbc_connection_pool": {
-			"name": "CodingConnectionPool"
+		"production": {
+			"jdbc_connection_pool": {
+				"name": "CodingConnectionPool"
+			},
+			"jdbc_resource": {
+				"jndi-name": "jdbc/coding"
+			}
 		},
-		"jdbc_resource": {
-			"jndi-name": "jdbc/coding"
+		"test": {
+			"jdbc_connection_pool": {
+				"name": "CodingTestConnectionPool"
+			},
+			"jdbc_resource": {
+				"jndi-name": "jdbc/coding_test"
+			}
+		},
+		"auth_realm": {
+			"realm_name": "CodingRealm"
 		}
 	}
   },
