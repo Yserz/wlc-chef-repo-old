@@ -74,6 +74,7 @@ glassfish_domain "domain1" do
   max_stack_size              1024
   max_memory                  512
   max_perm_size               512
+  perm_size                   512
 end
 
 # Create AuthRealm

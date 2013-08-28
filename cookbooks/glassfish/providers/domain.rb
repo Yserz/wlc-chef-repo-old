@@ -112,9 +112,10 @@ def default_jvm_options
     "-Dproduct.name=",
 
     # JVM options
+    "-XX:+CMSClassUnloadingEnabled",
     "-XX:+UnlockDiagnosticVMOptions",
     "-XX:MaxPermSize=#{new_resource.max_perm_size}m",
-    #"-XX:PermSize=64m",
+    "-XX:PermSize=#{new_resource.perm_size}m",
     "-Xss#{new_resource.max_stack_size}k",
     "-Xms#{new_resource.min_memory}m",
     "-Xmx#{new_resource.max_memory}m",
@@ -251,6 +252,7 @@ action :create do
     command_string = []
     command_string << (requires_authbind ? "authbind --deep " : "") + asadmin_command("create-domain #{args.join(' ')} #{new_resource.domain_name}", false)
     command_string << replace_in_domain_file("%%%CPU_NODE_COUNT%%%", node['cpu'].size - 2)
+    command_string << replace_in_domain_file("%%%PERM_SIZE%%%", new_resource.perm_size)
     command_string << replace_in_domain_file("%%%MAX_PERM_SIZE%%%", new_resource.max_perm_size)
     command_string << replace_in_domain_file("%%%MAX_STACK_SIZE%%%", new_resource.max_stack_size)
     command_string << replace_in_domain_file("%%%MAX_MEM_SIZE%%%", new_resource.max_memory)
