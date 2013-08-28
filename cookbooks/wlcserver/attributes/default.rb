@@ -13,6 +13,11 @@ default['wlcserver']['glassfish']['admin_password'] = "password"
 default['wlcserver']['glassfish']['terse'] = false
 default['wlcserver']['glassfish']['echo'] = true
 default['wlcserver']['glassfish']['secure'] = false
+default['wlcserver']['glassfish']['domain_port'] = 80
+default['wlcserver']['glassfish']['max_stack_size'] = 1024
+default['wlcserver']['glassfish']['max_memory'] = 512
+default['wlcserver']['glassfish']['max_perm_size'] = 512
+default['wlcserver']['glassfish']['perm_size'] = 512
 
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['name'] = "CodingConnectionPool"
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['description'] = ""
@@ -66,7 +71,7 @@ default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['connection-va
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['datasource-classname'] = "com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['fail-all-connections'] = false
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['idle-timeout-in-seconds'] = 300
-default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['is-connection-validation-required'] = false
+default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['is-connection-validation-required'] = true
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['is-isolation-level-guaranteed'] = true
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['lazy-connection-association'] = false
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['lazy-connection-enlistment'] = false

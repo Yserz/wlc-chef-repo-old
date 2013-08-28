@@ -60,9 +60,9 @@ end
 # GLASSFISH #
 # Create Domain
 password_file = "#{node['glassfish']['domains_dir']}/#{node['wlcserver']['glassfish']['domain_name']}_admin_passwd"
-glassfish_domain "domain1" do
+glassfish_domain node['wlcserver']['glassfish']['domain_name'] do
   domain_name                 node['wlcserver']['glassfish']['domain_name']
-  port                        80
+  port                        node['wlcserver']['glassfish']['domain_port']
   username                    node['wlcserver']['glassfish']['admin_name']
   password                    node['wlcserver']['glassfish']['admin_password']
   password_file               password_file
@@ -71,10 +71,10 @@ glassfish_domain "domain1" do
   terse                       node['wlcserver']['glassfish']['terse']
   echo                        node['wlcserver']['glassfish']['echo']
 #  extra_libraries             ['https://github.com/Yserz/WLC-Chef-Repo/blob/master/mysql-connector-java-5.1.26-bin.jar?raw=true']
-  max_stack_size              1024
-  max_memory                  512
-  max_perm_size               512
-  perm_size                   512
+  max_stack_size              node['wlcserver']['glassfish']['max_stack_size']
+  max_memory                  node['wlcserver']['glassfish']['max_memory']
+  max_perm_size               node['wlcserver']['glassfish']['max_perm_size']
+  perm_size                   node['wlcserver']['glassfish']['perm_size']
 end
 
 # Create AuthRealm
