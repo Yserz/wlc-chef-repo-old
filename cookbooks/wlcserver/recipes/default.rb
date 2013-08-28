@@ -72,6 +72,8 @@ glassfish_domain "domain1" do
   echo                        node['wlcserver']['glassfish']['echo']
 #  extra_libraries             ['https://github.com/Yserz/WLC-Chef-Repo/blob/master/mysql-connector-java-5.1.26-bin.jar?raw=true']
   max_stack_size              1024
+  max_memory                  512
+  max_perm_size               512
 end
 
 # Create AuthRealm
@@ -89,15 +91,15 @@ glassfish_secure_admin node['wlcserver']['glassfish']['domain_name'] do
 end
 
 # Add MySQL JDBC-Driver
-glassfish_library 'http://daisy.trac.cvsdude.com/pipeline/export/15/persontest/trunk/db/mysql/mysql-connector-java-5.1.6-bin.jar' do
-  domain_name                 node['wlcserver']['glassfish']['domain_name']
-  admin_port                  node['wlcserver']['glassfish']['admin_port']
-  username                    node['wlcserver']['glassfish']['admin_name']
-  password_file               password_file
-  secure                      node['wlcserver']['glassfish']['secure']
-  library_type                'ext'
-  upload                      false
-end
+#glassfish_library 'https://bitbucket.org/Yserz/jdbc-test/downloads/mysql-connector-java-5.1.26-bin.jar' do
+#  domain_name                 node['wlcserver']['glassfish']['domain_name']
+#  admin_port                  node['wlcserver']['glassfish']['admin_port']
+#  username                    node['wlcserver']['glassfish']['admin_name']
+#  password_file               password_file
+#  secure                      node['wlcserver']['glassfish']['secure']
+#  library_type                'ext'
+#  upload                      false
+#end
 
 # Create WLC JDBC PRODUCTION CONNECTION POOL
 glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['name'] do
