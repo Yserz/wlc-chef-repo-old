@@ -131,7 +131,7 @@
         <jvm-options>-XX:+UseParallelOldGC</jvm-options>
         <jvm-options>-XX:ParallelGCThreads=%%%CPU_NODE_COUNT%%%</jvm-options>
         <jvm-options>-XX:MaxPermSize=%%%MAX_PERM_SIZE%%%m</jvm-options>
-		<jvm-options>-XX:PermSize=%%%STACK_SIZE%%%m</jvm-options>
+		<jvm-options>-XX:PermSize=%%%PERM_SIZE%%%m</jvm-options>
         <jvm-options>-Xss%%%MAX_STACK_SIZE%%%k</jvm-options>
         <jvm-options>-Xms%%%MIN_MEM_SIZE%%%m</jvm-options>
         <jvm-options>-Xmx%%%MAX_MEM_SIZE%%%m</jvm-options>
