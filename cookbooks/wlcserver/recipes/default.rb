@@ -118,7 +118,6 @@ glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['production']['jdb
   #  driverclassname node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['']
   #  validationclassname nil
   #  validationtable nil
-  #  isolationlevel:
   pool_name                   node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['name']
   description                 node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['description']
   allownoncomponentcallers    node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['allow-non-component-callers']
@@ -151,6 +150,7 @@ glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['production']['jdb
   steadypoolsize              node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['steady-pool-size']
   validateatmostonceperiod    node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['validate-atmost-once-period-in-seconds']
   wrapjdbcobjects             node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['wrap-jdbc-objects']
+  isolationlevel              node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['transaction-isolation-level']
   properties ({
     :URL =>                      "jdbc:mysql://#{node['mysql']['bind_address']}:#{node['mysql']['port']}/#{node['wlcserver']['database']}",
     :User =>                     node['wlcserver']['database_username'],
@@ -196,7 +196,6 @@ glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['test']['jdbc_conn
   #  driverclassname node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['']
   #  validationclassname nil
   #  validationtable nil
-  #  isolationlevel:
   pool_name                   node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['name']
   description                 node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['description']
   allownoncomponentcallers    node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['allow-non-component-callers']
@@ -229,6 +228,7 @@ glassfish_jdbc_connection_pool node['wlcserver']['glassfish']['test']['jdbc_conn
   steadypoolsize              node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['steady-pool-size']
   validateatmostonceperiod    node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['validate-atmost-once-period-in-seconds']
   wrapjdbcobjects             node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['wrap-jdbc-objects']
+  isolationlevel              node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['transaction-isolation-level']
   properties ({
     :URL =>                      "jdbc:mysql://#{node['mysql']['bind_address']}:#{node['mysql']['port']}/#{node['wlcserver']['test_database']}",
     :User =>                     node['wlcserver']['database_username'],

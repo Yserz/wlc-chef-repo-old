@@ -26,16 +26,16 @@ default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['connect
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['datasource-classname'] = "com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['fail-all-connections'] = false
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['idle-timeout-in-seconds'] = 300
-default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['is-connection-validation-required'] = false
+default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['is-connection-validation-required'] = true
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['is-isolation-level-guaranteed'] = true
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['lazy-connection-association'] = false
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['lazy-connection-enlistment'] = false
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['match-connections'] = false
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['max-connection-usage-count'] = 0
-default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['max-pool-size'] = 32
+default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['max-pool-size'] = 100
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['max-wait-time-in-millis'] = 60000
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['non-transactional-connections'] = false
-default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['ping'] = false
+default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['ping'] = true
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['pool-resize-quantity'] = 2
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['pooling'] = true
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['res-type'] = "javax.sql.DataSource"
@@ -43,9 +43,10 @@ default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['stateme
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['statement-leak-reclaim'] = false
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['statement-leak-timeout-in-seconds'] = 0
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['statement-timeout-in-seconds'] = 0
-default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['steady-pool-size'] = 8
+default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['steady-pool-size'] = 20
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['validate-atmost-once-period-in-seconds'] = 0
 default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['wrap-jdbc-objects'] = false
+default['wlcserver']['glassfish']['production']['jdbc_connection_pool']['transaction-isolation-level'] = "repeatable-read"
 
 
 default['wlcserver']['glassfish']['production']['jdbc_resource']['pool-name'] = "#{node['wlcserver']['glassfish']['production']['jdbc_connection_pool']['name']}"
@@ -74,7 +75,7 @@ default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['max-connectio
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['max-pool-size'] = 32
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['max-wait-time-in-millis'] = 60000
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['non-transactional-connections'] = false
-default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['ping'] = false
+default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['ping'] = true
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['pool-resize-quantity'] = 2
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['pooling'] = true
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['res-type'] = "javax.sql.DataSource"
@@ -85,6 +86,7 @@ default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['statement-tim
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['steady-pool-size'] = 8
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['validate-atmost-once-period-in-seconds'] = 0
 default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['wrap-jdbc-objects'] = false
+default['wlcserver']['glassfish']['test']['jdbc_connection_pool']['transaction-isolation-level'] = "repeatable-read"
 
 
 default['wlcserver']['glassfish']['test']['jdbc_resource']['pool-name'] = "#{node['wlcserver']['glassfish']['test']['jdbc_connection_pool']['name']}"
